@@ -22,9 +22,9 @@ public class ParkingLotTest {
         //given
         Car car = new Car();
         ParkingLot parkingLot = new ParkingLot();
+        CarTicket carTicket = parkingLot.park(car);
 
         //when
-        CarTicket carTicket = parkingLot.park(car);
         Car carReturn = parkingLot.fetch(carTicket);
 
         //then
@@ -38,10 +38,10 @@ public class ParkingLotTest {
         Car car1 = new Car();
         Car car2 = new Car();
         ParkingLot parkingLot = new ParkingLot();
-
-        //when
         CarTicket carTicket1 = parkingLot.park(car1);
         CarTicket carTicket2 = parkingLot.park(car2);
+
+        //when
         Car carReturn = parkingLot.fetch(carTicket1);
 
         //then
@@ -54,11 +54,11 @@ public class ParkingLotTest {
         Car car1 = new Car();
         Car car2 = new Car();
         ParkingLot parkingLot = new ParkingLot();
-
-        //when
         CarTicket carTicket1 = parkingLot.park(car1);
         CarTicket carTicket2 = parkingLot.park(car2);
         CarTicket carTicket3 = new CarTicket();
+
+        //when
         Car carReturn = parkingLot.fetch(carTicket3);
 
         //then
@@ -71,10 +71,10 @@ public class ParkingLotTest {
         Car car1 = new Car();
         Car car2 = new Car();
         ParkingLot parkingLot = new ParkingLot();
-
-        //when
         CarTicket carTicket1 = parkingLot.park(car1);
         CarTicket carTicket2 = parkingLot.park(car2);
+
+        //when
         Car carReturn = parkingLot.fetch(null);
 
         //then
@@ -87,15 +87,31 @@ public class ParkingLotTest {
         Car car1 = new Car();
         Car car2 = new Car();
         ParkingLot parkingLot = new ParkingLot();
-
-        //when
         CarTicket carTicket1 = parkingLot.park(car1);
         CarTicket carTicket2 = parkingLot.park(car2);
+
+        //when
         Car carReturn = parkingLot.fetch(carTicket1);
         Car carReturn2 = parkingLot.fetch(carTicket1);
 
         //then
         assertNull(carReturn2);
+    }
+
+    @Test
+    void should_return_no_ticket_when_park_given_capacity_over_10(){
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        for(int i=0; i<10; i++){
+            parkingLot.park(new Car());
+        }
+        Car car11 = new Car();
+
+        //when
+        CarTicket carTicket = parkingLot.park(car11);
+
+        //then
+        assertNull(carTicket);
     }
 
 }
