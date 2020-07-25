@@ -88,10 +88,9 @@ public class ParkingLotTest {
         Car car2 = new Car();
         ParkingLot parkingLot = new ParkingLot();
         CarTicket carTicket1 = parkingLot.store(car1);
-        CarTicket carTicket2 = parkingLot.store(car2);
 
         //when
-        Car carReturn = parkingLot.move(carTicket1);
+        Car carReturn1 = parkingLot.move(carTicket1);
         Car carReturn2 = parkingLot.move(carTicket1);
 
         //then
