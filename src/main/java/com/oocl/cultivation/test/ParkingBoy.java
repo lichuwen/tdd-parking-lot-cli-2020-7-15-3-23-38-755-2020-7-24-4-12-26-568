@@ -14,10 +14,18 @@ public class ParkingBoy {
         return wrongMessage;
     }
 
+    public CarTicket park(Car car) {
+        CarTicket ticket = parkingLot.store(car);
+        if (ticket == null) {
+            wrongMessage = "Unrecognized parking ticket.";
+        }
+        return ticket;
+    }
+
     public Car fetch(CarTicket ticket) {
         Car car = parkingLot.move(ticket);
         if (car == null)
             wrongMessage = "Unrecognized parking ticket.";
-        return new Car();
+        return car;
     }
 }
