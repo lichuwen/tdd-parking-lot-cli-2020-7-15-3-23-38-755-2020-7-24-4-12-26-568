@@ -24,7 +24,7 @@ public class ParkingLot {
         return parkLots;
     }
 
-    public CarTicket park(Car car){
+    public CarTicket store(Car car){
         CarTicket carTicket = new CarTicket();
         if(parkLots.size() >= capacity){
             return null;
@@ -33,7 +33,7 @@ public class ParkingLot {
         return carTicket;
     }
 
-    public Car fetch(CarTicket carTicket) {
+    public Car move(CarTicket carTicket) {
         Car car = parkLots.get(carTicket);
         parkLots.remove(carTicket);
         return car;
