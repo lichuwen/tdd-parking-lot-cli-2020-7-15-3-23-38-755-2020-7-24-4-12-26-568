@@ -19,7 +19,7 @@ public class ParkingLotTest {
     }
 
     @Test
-    void should_fetch_car_when_park_given_carTicket(){
+    void should_return_car_when_park_given_carTicket(){
         //given
         Car car = new Car();
         ParkingLot parkingLot = new ParkingLot();
@@ -32,4 +32,21 @@ public class ParkingLotTest {
         assertNotNull(carTicket);
         assertEquals(car,carReturn);
     }
+
+    @Test
+    void should_return_right_car_when_park_cars_given_correspond_carTicket(){
+        //given
+        Car car1 = new Car();
+        Car car2 = new Car();
+        ParkingLot parkingLot = new ParkingLot();
+
+        //when
+        CarTicket carTicket1 = parkingLot.park(car1);
+        CarTicket carTicket2 = parkingLot.park(car2);
+        Car carReturn = parkingLot.fetch(carTicket1);
+
+        //then
+        assertEquals(car1,carReturn);
+    }
+
 }
