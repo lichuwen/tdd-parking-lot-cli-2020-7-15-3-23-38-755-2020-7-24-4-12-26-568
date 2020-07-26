@@ -2,6 +2,7 @@ package com.oocl.cultivation.test;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class ParkingBoyTest {
     @Test
@@ -9,9 +10,9 @@ public class ParkingBoyTest {
         //given
         ParkingLot parkingLot = new ParkingLot();
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        CarTicket carTicket = new CarTicket();
 
         //when
-        CarTicket carTicket = new CarTicket();
         Car returnCar = parkingBoy.fetch(carTicket);
         String wrongMessage = parkingBoy.getWrongMessage();
 
@@ -25,12 +26,11 @@ public class ParkingBoyTest {
         ParkingLot parkingLot = new ParkingLot();
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
         Car car = new Car();
+        CarTicket carTicket = parkingBoy.park(car);
 
         //when
-        CarTicket carTicket = parkingBoy.park(car);
         Car returnCar1 = parkingBoy.fetch(carTicket);
         Car returnCar2 = parkingBoy.fetch(carTicket);
-
         String wrongMessage = parkingBoy.getWrongMessage();
 
         //then
@@ -42,11 +42,10 @@ public class ParkingBoyTest {
         //given
         ParkingLot parkingLot = new ParkingLot();
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        CarTicket carTicket = null;
 
         //when
-        CarTicket carTicket = null;
         Car returnCar1 = parkingBoy.fetch(carTicket);
-
         String wrongMessage = parkingBoy.getWrongMessage();
 
         //then
