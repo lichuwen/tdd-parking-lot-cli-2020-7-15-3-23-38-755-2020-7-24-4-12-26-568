@@ -13,7 +13,7 @@ public class ParkingLot {
     }
 
     public int getCapacity() {
-        return capacity;
+        return this.capacity;
     }
 
     public void setCapacity(int capacity) {
@@ -26,11 +26,10 @@ public class ParkingLot {
 
     public CarTicket store(Car car){
         CarTicket carTicket = new CarTicket();
-        if(!isEnoughPosition()){
+        if(isEnoughPosition()){
             return null;
         }
         parkLots.put(carTicket,car);
-        capacity--;
         return carTicket;
     }
 
@@ -41,9 +40,7 @@ public class ParkingLot {
     }
 
     public boolean isEnoughPosition(){
-        if(parkLots.size() < capacity)
-            return true;
-        return false;
+        return parkLots.size() >= this.capacity;
     }
 
 }

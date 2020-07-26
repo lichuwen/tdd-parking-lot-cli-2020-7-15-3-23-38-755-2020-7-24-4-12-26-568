@@ -1,16 +1,17 @@
 package com.oocl.cultivation.test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class ParkingBoy {
 
-    private ParkingLot parkingLot;
+    ArrayList<ParkingLot> parkingLots;
     private String wrongMessage;
     private Map<String,String> wrongMessages = new HashMap<>();
 
-    public ParkingBoy(ParkingLot parkingLot) {
-        this.parkingLot = parkingLot;
+    public ParkingBoy(ArrayList<ParkingLot> parkingLots) {
+        this.parkingLots = parkingLots;
         wrongMessages.put("unRecognize","Unrecognized parking ticket.");
         wrongMessages.put("unProvide","Please provide your parking ticket.");
         wrongMessages.put("noPosition","Not enough position.");
@@ -25,7 +26,8 @@ public class ParkingBoy {
     }
 
     public CarTicket park(Car car) {
-        if(!parkingLot.isEnoughPosition()){
+        ParkingLot parkingLot = chooseParkingLot(parkingLots);
+        if(parkingLot.isEnoughPosition()){
             wrongMessage = wrongMessages.get("noPosition");
             return null;
         }
@@ -37,6 +39,7 @@ public class ParkingBoy {
     }
 
     public Car fetch(CarTicket ticket) {
+        ParkingLot parkingLot = chooseParkingLot(parkingLots);
         if(ticket == null){
             wrongMessage = wrongMessages.get("unProvide");
             return null;
@@ -46,5 +49,16 @@ public class ParkingBoy {
             wrongMessage = wrongMessages.get("unRecognize");
         return car;
     }
+
+    public ParkingLot chooseParkingLot(ArrayList<ParkingLot> parkingLots){
+        ParkingLot suitParkingLot = parkingLots.get(0);
+        for(ParkingLot parkinglot:parkingLots){
+            if(!parkinglot.isEnoughPosition()){
+                suitParkingLot = parkinglot;
+            }
+        }
+        return suitParkingLot;
+    }
+
 
 }
