@@ -25,6 +25,10 @@ public class ParkingBoy {
     }
 
     public CarTicket park(Car car) {
+        if(!parkingLot.isEnoughPosition()){
+            wrongMessage = wrongMessages.get("noPosition");
+            return null;
+        }
         CarTicket ticket = parkingLot.store(car);
         if (ticket == null) {
             wrongMessage = wrongMessages.get("unProvide");
@@ -42,4 +46,5 @@ public class ParkingBoy {
             wrongMessage = wrongMessages.get("unRecognize");
         return car;
     }
+
 }

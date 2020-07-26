@@ -26,10 +26,11 @@ public class ParkingLot {
 
     public CarTicket store(Car car){
         CarTicket carTicket = new CarTicket();
-        if(parkLots.size() >= capacity){
+        if(!isEnoughPosition()){
             return null;
         }
         parkLots.put(carTicket,car);
+        capacity--;
         return carTicket;
     }
 
@@ -38,4 +39,11 @@ public class ParkingLot {
         parkLots.remove(carTicket);
         return car;
     }
+
+    public boolean isEnoughPosition(){
+        if(parkLots.size() < capacity)
+            return true;
+        return false;
+    }
+
 }
