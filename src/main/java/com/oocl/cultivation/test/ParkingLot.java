@@ -43,4 +43,8 @@ public class ParkingLot {
         return parkLots.size() >= this.capacity;
     }
 
+    public int getEmptyPosition(){
+        return capacity - parkLots.size();
+    }
+
 }

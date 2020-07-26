@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ParkingBoy {
+public class ParkingBoy implements bestChoiceOfParkingLots{
 
     ArrayList<ParkingLot> parkingLots;
     private String wrongMessage;
@@ -50,7 +50,8 @@ public class ParkingBoy {
         return car;
     }
 
-    public ParkingLot chooseParkingLot(ArrayList<ParkingLot> parkingLots){
+    @Override
+    public ParkingLot chooseParkingLot(ArrayList<ParkingLot> parkingLots) {
         ParkingLot suitParkingLot = parkingLots.get(0);
         for(ParkingLot parkinglot:parkingLots){
             if(!parkinglot.isEnoughPosition()){
@@ -59,6 +60,5 @@ public class ParkingBoy {
         }
         return suitParkingLot;
     }
-
-
 }
+
