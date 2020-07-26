@@ -3,13 +3,13 @@ package com.oocl.cultivation.test;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class ParkingBoyTest {
     @Test
-    void should_return_wrong_message_when_fetch_given_wrong_ticket(){
+    void should_return_wrong_message_when_fetch_given_wrong_ticket() {
         //given
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(new ParkingLot());
@@ -25,7 +25,7 @@ public class ParkingBoyTest {
     }
 
     @Test
-    void should_return_wrong_message_when_fetch_given_used_ticket(){
+    void should_return_wrong_message_when_fetch_given_used_ticket() {
         //given
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(new ParkingLot());
@@ -43,7 +43,7 @@ public class ParkingBoyTest {
     }
 
     @Test
-    void should_return_wrong_message_when_fetch_given_no_ticket(){
+    void should_return_wrong_message_when_fetch_given_no_ticket() {
         //given
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(new ParkingLot());
@@ -59,12 +59,12 @@ public class ParkingBoyTest {
     }
 
     @Test
-    void should_return_wrong_message_when_park_given_no_position(){
+    void should_return_wrong_message_when_park_given_no_position() {
         //given
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(new ParkingLot());
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
-        for(int i=0; i<10; i++){
+        for (int i = 0; i < 10; i++) {
             parkingBoy.park(new Car());
         }
         Car car = new Car();
@@ -78,13 +78,13 @@ public class ParkingBoyTest {
     }
 
     @Test
-    void should_return_ticket_when_park_given_over_10_cars_and_2_parkingLots(){
+    void should_return_ticket_when_park_given_over_10_cars_and_2_parkingLots() {
         //given
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(new ParkingLot());
         parkingLots.add(new ParkingLot());
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
-        for(int i=0; i<10; i++){
+        for (int i = 0; i < 10; i++) {
             parkingBoy.park(new Car());
         }
         Car car11 = new Car();

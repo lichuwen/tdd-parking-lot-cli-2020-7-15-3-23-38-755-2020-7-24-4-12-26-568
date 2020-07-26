@@ -5,12 +5,11 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class SmartParkingBoyTest{
+public class SmartParkingBoyTest {
 
     @Test
-    void should_return_more_empty_parkingLot_when_park_given_2_parkingLots(){
+    void should_return_more_empty_parkingLot_when_park_given_2_parkingLots() {
         //given
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(new ParkingLot());
@@ -23,8 +22,8 @@ public class SmartParkingBoyTest{
         smartParkingBoy.park(car);
 
         //then
-        assertEquals(9,parkingLots.get(0).getEmptyPosition());
-        assertEquals(9,parkingLots.get(1).getEmptyPosition());
+        assertEquals(9, parkingLots.get(0).getEmptyPosition());
+        assertEquals(9, parkingLots.get(1).getEmptyPosition());
     }
 
 }

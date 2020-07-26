@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ParkingBoy implements bestChoiceOfParkingLots{
+public class ParkingBoy implements bestChoiceOfParkingLots {
 
     ArrayList<ParkingLot> parkingLots;
     private String wrongMessage;
-    private Map<String,String> wrongMessages = new HashMap<>();
+    private Map<String, String> wrongMessages = new HashMap<>();
 
     public ParkingBoy(ArrayList<ParkingLot> parkingLots) {
         this.parkingLots = parkingLots;
-        wrongMessages.put("unRecognize","Unrecognized parking ticket.");
-        wrongMessages.put("unProvide","Please provide your parking ticket.");
-        wrongMessages.put("noPosition","Not enough position.");
+        wrongMessages.put("unRecognize", "Unrecognized parking ticket.");
+        wrongMessages.put("unProvide", "Please provide your parking ticket.");
+        wrongMessages.put("noPosition", "Not enough position.");
     }
 
     public String getWrongMessage() {
@@ -27,7 +27,7 @@ public class ParkingBoy implements bestChoiceOfParkingLots{
 
     public CarTicket park(Car car) {
         ParkingLot parkingLot = chooseParkingLot(parkingLots);
-        if(parkingLot.isEnoughPosition()){
+        if (parkingLot.isEnoughPosition()) {
             wrongMessage = wrongMessages.get("noPosition");
             return null;
         }
@@ -40,7 +40,7 @@ public class ParkingBoy implements bestChoiceOfParkingLots{
 
     public Car fetch(CarTicket ticket) {
         ParkingLot parkingLot = chooseParkingLot(parkingLots);
-        if(ticket == null){
+        if (ticket == null) {
             wrongMessage = wrongMessages.get("unProvide");
             return null;
         }
@@ -53,8 +53,8 @@ public class ParkingBoy implements bestChoiceOfParkingLots{
     @Override
     public ParkingLot chooseParkingLot(ArrayList<ParkingLot> parkingLots) {
         ParkingLot suitParkingLot = parkingLots.get(0);
-        for(ParkingLot parkinglot:parkingLots){
-            if(!parkinglot.isEnoughPosition()){
+        for (ParkingLot parkinglot : parkingLots) {
+            if (!parkinglot.isEnoughPosition()) {
                 suitParkingLot = parkinglot;
             }
         }

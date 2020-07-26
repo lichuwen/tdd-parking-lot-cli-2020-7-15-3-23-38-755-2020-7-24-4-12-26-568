@@ -6,7 +6,7 @@ import java.util.Map;
 public class ParkingLot {
 
     private int capacity;
-    private Map<CarTicket,Car> parkLots = new HashMap<>();
+    private Map<CarTicket, Car> parkLots = new HashMap<>();
 
     public ParkingLot() {
         this.capacity = 10;
@@ -24,12 +24,12 @@ public class ParkingLot {
         return parkLots;
     }
 
-    public CarTicket store(Car car){
+    public CarTicket store(Car car) {
         CarTicket carTicket = new CarTicket();
-        if(isEnoughPosition()){
+        if (isEnoughPosition()) {
             return null;
         }
-        parkLots.put(carTicket,car);
+        parkLots.put(carTicket, car);
         return carTicket;
     }
 
@@ -39,11 +39,11 @@ public class ParkingLot {
         return car;
     }
 
-    public boolean isEnoughPosition(){
+    public boolean isEnoughPosition() {
         return parkLots.size() >= this.capacity;
     }
 
-    public int getEmptyPosition(){
+    public int getEmptyPosition() {
         return capacity - parkLots.size();
     }
 

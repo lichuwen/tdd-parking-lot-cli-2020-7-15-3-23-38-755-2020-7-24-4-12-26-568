@@ -1,11 +1,12 @@
 package com.oocl.cultivation.test;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ParkingLotTest {
     @Test
-    void should_return_ticket_when_park_given_car(){
+    void should_return_ticket_when_park_given_car() {
         //given
         ParkingLot parkingLot = new ParkingLot();
         Car car = new Car();
@@ -18,7 +19,7 @@ public class ParkingLotTest {
     }
 
     @Test
-    void should_return_car_when_fetch_given_carTicket(){
+    void should_return_car_when_fetch_given_carTicket() {
         //given
         Car car = new Car();
         ParkingLot parkingLot = new ParkingLot();
@@ -29,11 +30,11 @@ public class ParkingLotTest {
 
         //then
         assertNotNull(carTicket);
-        assertEquals(car,carReturn);
+        assertEquals(car, carReturn);
     }
 
     @Test
-    void should_return_right_car_when_fetch_cars_given_correspond_carTicket(){
+    void should_return_right_car_when_fetch_cars_given_correspond_carTicket() {
         //given
         Car car1 = new Car();
         Car car2 = new Car();
@@ -45,11 +46,11 @@ public class ParkingLotTest {
         Car carReturn = parkingLot.move(carTicket1);
 
         //then
-        assertEquals(car1,carReturn);
+        assertEquals(car1, carReturn);
     }
 
     @Test
-    void should_return_no_car_when_fetch_given_wrong_carTicket(){
+    void should_return_no_car_when_fetch_given_wrong_carTicket() {
         //given
         Car car1 = new Car();
         Car car2 = new Car();
@@ -66,7 +67,7 @@ public class ParkingLotTest {
     }
 
     @Test
-    void should_return_no_car_when_fetch_given_no_carTicket(){
+    void should_return_no_car_when_fetch_given_no_carTicket() {
         //given
         Car car1 = new Car();
         Car car2 = new Car();
@@ -82,7 +83,7 @@ public class ParkingLotTest {
     }
 
     @Test
-    void should_return_no_car_when_fetch_given_already_used_carTicket(){
+    void should_return_no_car_when_fetch_given_already_used_carTicket() {
         //given
         Car car1 = new Car();
         Car car2 = new Car();
@@ -98,10 +99,10 @@ public class ParkingLotTest {
     }
 
     @Test
-    void should_return_no_ticket_when_park_given_capacity_over_10(){
+    void should_return_no_ticket_when_park_given_capacity_over_10() {
         //given
         ParkingLot parkingLot = new ParkingLot();
-        for(int i=0; i<10; i++){
+        for (int i = 0; i < 10; i++) {
             parkingLot.store(new Car());
         }
         Car car11 = new Car();
