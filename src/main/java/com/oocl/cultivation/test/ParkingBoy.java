@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class ParkingBoy implements bestChoiceOfParkingLots {
 
-    ArrayList<ParkingLot> parkingLots;
+    private ArrayList<ParkingLot> parkingLots;
     private String wrongMessage;
     private Map<String, String> wrongMessages = new HashMap<>();
 
