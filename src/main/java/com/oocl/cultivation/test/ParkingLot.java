@@ -12,16 +12,12 @@ public class ParkingLot {
         this.capacity = 10;
     }
 
-    public int getCapacity() {
-        return this.capacity;
-    }
-
-    public void setCapacity(int capacity) {
+    public ParkingLot(int capacity) {
         this.capacity = capacity;
     }
 
-    public Map<CarTicket, Car> getParkLots() {
-        return parkLots;
+    public int getCapacity() {
+        return this.capacity;
     }
 
     public CarTicket store(Car car) {

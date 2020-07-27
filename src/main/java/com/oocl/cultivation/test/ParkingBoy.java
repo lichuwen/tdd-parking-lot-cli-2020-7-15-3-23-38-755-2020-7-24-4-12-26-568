@@ -21,10 +21,6 @@ public class ParkingBoy implements bestChoiceOfParkingLots {
         return wrongMessage;
     }
 
-    public Map<String, String> getWrongMessages() {
-        return wrongMessages;
-    }
-
     public CarTicket park(Car car) {
         ParkingLot parkingLot = chooseParkingLot(parkingLots);
         if (parkingLot.isEnoughPosition()) {
