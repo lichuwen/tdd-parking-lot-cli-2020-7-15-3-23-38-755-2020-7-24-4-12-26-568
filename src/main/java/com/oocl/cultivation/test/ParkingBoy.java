@@ -3,6 +3,8 @@ package com.oocl.cultivation.test;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class ParkingBoy implements bestChoiceOfParkingLots {
 
@@ -23,7 +25,7 @@ public class ParkingBoy implements bestChoiceOfParkingLots {
 
     public CarTicket park(Car car) {
         ParkingLot parkingLot = chooseParkingLot(parkingLots);
-        if (parkingLot.isEnoughPosition()) {
+        if (!parkingLot.isEnoughPosition()) {
             wrongMessage = wrongMessages.get("noPosition");
             return null;
         }
@@ -50,7 +52,7 @@ public class ParkingBoy implements bestChoiceOfParkingLots {
     public ParkingLot chooseParkingLot(ArrayList<ParkingLot> parkingLots) {
         ParkingLot suitParkingLot = parkingLots.get(0);
         for (ParkingLot parkinglot : parkingLots) {
-            if (!parkinglot.isEnoughPosition()) {
+            if (parkinglot.isEnoughPosition()) {
                 suitParkingLot = parkinglot;
             }
         }

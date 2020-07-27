@@ -20,9 +20,13 @@ public class ParkingLot {
         return this.capacity;
     }
 
+    public Map<CarTicket, Car> getParkLots() {
+        return parkLots;
+    }
+
     public CarTicket store(Car car) {
         CarTicket carTicket = new CarTicket();
-        if (isEnoughPosition()) {
+        if (!isEnoughPosition()) {
             return null;
         }
         parkLots.put(carTicket, car);
@@ -36,7 +40,7 @@ public class ParkingLot {
     }
 
     public boolean isEnoughPosition() {
-        return parkLots.size() >= this.capacity;
+        return parkLots.size() < this.capacity;
     }
 
     public int getEmptyPosition() {
