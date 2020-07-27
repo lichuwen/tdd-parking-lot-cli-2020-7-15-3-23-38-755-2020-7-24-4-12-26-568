@@ -1,6 +1,8 @@
 package com.oocl.cultivation.test;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.stream.Collectors;
 
 public class SmartParkingBoy extends ParkingBoy {
 
@@ -10,14 +12,9 @@ public class SmartParkingBoy extends ParkingBoy {
 
     @Override
     public ParkingLot chooseParkingLot(ArrayList<ParkingLot> parkingLots) {
-        ParkingLot suitParkingLot = parkingLots.get(0);
-        int largestEmptyPosition = 0;
-        for (ParkingLot parkingLot : parkingLots) {
-            if (parkingLot.getEmptyPosition() > largestEmptyPosition) {
-                suitParkingLot = parkingLot;
-                largestEmptyPosition = parkingLot.getEmptyPosition();
-            }
-        }
-        return suitParkingLot;
+        return parkingLots.stream()
+                .sorted(Comparator.comparingInt(ParkingLot::getEmptyPosition).reversed())
+                .collect(Collectors.toList())
+                .get(0);
     }
 }
