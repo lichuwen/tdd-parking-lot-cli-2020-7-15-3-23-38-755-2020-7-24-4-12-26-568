@@ -17,7 +17,7 @@ public class ParkingBoyTest {
         CarTicket carTicket = new CarTicket();
 
         //when
-        Car returnCar = parkingBoy.fetch(carTicket);
+        parkingBoy.fetch(carTicket);
         String wrongMessage = parkingBoy.getWrongMessage();
 
         //then
@@ -34,8 +34,8 @@ public class ParkingBoyTest {
         CarTicket carTicket = parkingBoy.park(car);
 
         //when
-        Car returnCar1 = parkingBoy.fetch(carTicket);
-        Car returnCar2 = parkingBoy.fetch(carTicket);
+        parkingBoy.fetch(carTicket);
+        parkingBoy.fetch(carTicket);
         String wrongMessage = parkingBoy.getWrongMessage();
 
         //then
@@ -48,10 +48,9 @@ public class ParkingBoyTest {
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(new ParkingLot());
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
-        CarTicket carTicket = null;
 
         //when
-        Car returnCar1 = parkingBoy.fetch(carTicket);
+        parkingBoy.fetch(null);
         String wrongMessage = parkingBoy.getWrongMessage();
 
         //then
@@ -68,7 +67,7 @@ public class ParkingBoyTest {
             parkingBoy.park(new Car());
         }
         Car car = new Car();
-        CarTicket carTicket = parkingBoy.park(car);
+        parkingBoy.park(car);
 
         //when
         String wrongMessage = parkingBoy.getWrongMessage();
