@@ -11,9 +11,7 @@ public class SuperSmartParkingBoyTest {
     void should_return_larger_available_parkingLot_when_park_given_2_parkingLots_with_different_capacity() {
         //given
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
-        ParkingLot parkingLot1 = new ParkingLot();
-        parkingLot1.setCapacity(8);
-        parkingLots.add(parkingLot1);
+        parkingLots.add(new ParkingLot(8));
         parkingLots.add(new ParkingLot());
         SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLots);
         for (int i = 0; i < 2; i++) {
@@ -25,7 +23,7 @@ public class SuperSmartParkingBoyTest {
         superSmartParkingBoy.park(car);
 
         //then
-        assertEquals(1, parkingLots.get(0).getParkLots().size());
-        assertEquals(2, parkingLots.get(1).getParkLots().size());
+        assertEquals(7, parkingLots.get(0).getEmptyPosition());
+        assertEquals(8, parkingLots.get(1).getEmptyPosition());
     }
 }
