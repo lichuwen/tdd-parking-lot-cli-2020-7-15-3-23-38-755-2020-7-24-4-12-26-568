@@ -33,7 +33,7 @@ public class ParkingLot {
         return carTicket;
     }
 
-    public Car move(CarTicket carTicket) {
+    public Car take(CarTicket carTicket) {
         Car car = parkLots.get(carTicket);
         parkLots.remove(carTicket);
         return car;

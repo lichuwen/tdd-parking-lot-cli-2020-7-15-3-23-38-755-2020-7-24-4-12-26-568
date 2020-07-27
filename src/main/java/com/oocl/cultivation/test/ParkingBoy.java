@@ -44,7 +44,7 @@ public class ParkingBoy implements bestChoiceOfParkingLots {
             wrongMessage = wrongMessages.get("unProvide");
             return null;
         }
-        Car car = parkingLot.move(ticket);
+        Car car = parkingLot.take(ticket);
         if (car == null)
             wrongMessage = wrongMessages.get("unRecognize");
         return car;

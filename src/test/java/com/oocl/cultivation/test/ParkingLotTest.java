@@ -26,7 +26,7 @@ public class ParkingLotTest {
         CarTicket carTicket = parkingLot.store(car);
 
         //when
-        Car carReturn = parkingLot.move(carTicket);
+        Car carReturn = parkingLot.take(carTicket);
 
         //then
         assertNotNull(carTicket);
@@ -43,7 +43,7 @@ public class ParkingLotTest {
         CarTicket carTicket2 = parkingLot.store(car2);
 
         //when
-        Car carReturn = parkingLot.move(carTicket1);
+        Car carReturn = parkingLot.take(carTicket1);
 
         //then
         assertEquals(car1, carReturn);
@@ -60,7 +60,7 @@ public class ParkingLotTest {
         CarTicket carTicket3 = new CarTicket();
 
         //when
-        Car carReturn = parkingLot.move(carTicket3);
+        Car carReturn = parkingLot.take(carTicket3);
 
         //then
         assertNull(carReturn);
@@ -76,7 +76,7 @@ public class ParkingLotTest {
         CarTicket carTicket2 = parkingLot.store(car2);
 
         //when
-        Car carReturn = parkingLot.move(null);
+        Car carReturn = parkingLot.take(null);
 
         //then
         assertNull(carReturn);
@@ -91,8 +91,8 @@ public class ParkingLotTest {
         CarTicket carTicket1 = parkingLot.store(car1);
 
         //when
-        Car carReturn1 = parkingLot.move(carTicket1);
-        Car carReturn2 = parkingLot.move(carTicket1);
+        Car carReturn1 = parkingLot.take(carTicket1);
+        Car carReturn2 = parkingLot.take(carTicket1);
 
         //then
         assertNull(carReturn2);
