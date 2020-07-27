@@ -51,10 +51,10 @@ public class ParkingBoy implements bestChoiceOfParkingLots {
     @Override
     public ParkingLot chooseParkingLot(ArrayList<ParkingLot> parkingLots) {
         ParkingLot suitParkingLot = parkingLots.get(0);
-        for (ParkingLot parkinglot : parkingLots) {
-            if (parkinglot.isEnoughPosition()) {
-                suitParkingLot = parkinglot;
-            }
+        if(parkingLots.size() > 1){
+            suitParkingLot = parkingLots.stream()
+                    .filter(ParkingLot::isEnoughPosition)
+                    .collect(Collectors.toList()).get(0);
         }
         return suitParkingLot;
     }
